@@ -281,7 +281,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json){
             var locationCenter = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
             map.setCenter( locationCenter );
             map.setZoom(14);
-			
+
 			var markerContent = document.createElement('DIV');
 			markerContent.innerHTML =
 				'<div class="map-marker">' +
@@ -502,16 +502,19 @@ function createHomepageOSM(_latitude,_longitude,json,mapProvider){
 // Item Detail Map - Google
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function itemDetailMap(json){
-    var mapCenter = new google.maps.LatLng(json.latitude,json.longitude);
+function itemDetailMap(json,_latitude,_longitude){
+
+    var mapCenter = new google.maps.LatLng(_latitude,_longitude);
+    console.log("itemDetailMap");
+    console.log(_latitude);
     var mapOptions = {
         zoom: 14,
         center: mapCenter,
         disableDefaultUI: true,
-        scrollwheel: false,
+        scrollwheel: true,
         styles: mapStyles,
-        panControl: false,
-        zoomControl: false,
+        panControl: true,
+        zoomControl: true,
         draggable: true
     };
     var mapElement = document.getElementById('map-detail');
@@ -550,13 +553,13 @@ function simpleMap(_latitude, _longitude, draggableMarker){
     //console.log(_latitude,_longitude,draggableMarker );
     var mapCenter = new google.maps.LatLng(_latitude, _longitude);
     var mapOptions = {
-        zoom: 14,
+        zoom: 10,
         center: mapCenter,
         disableDefaultUI: true,
         scrollwheel: false,
         styles: mapStyles,
-        panControl: false,
-        zoomControl: false,
+        panControl: true,
+        zoomControl: true,
         draggable: true
     };
     var mapElement = document.getElementById('map-simple');
@@ -582,6 +585,27 @@ function simpleMap(_latitude, _longitude, draggableMarker){
     });
 
     marker.content.className = 'marker-loaded';
+
+    // // Get element references
+    var confirmBtn = document.getElementById('confirmPosition');
+    var longitude = document.getElementById('longitude');
+    var latitude = document.getElementById('latitude');
+
+    // // Initialize locationPicker plugin
+    // var lp = new locationPicker('map-simple', {
+    //   setCurrentPosition: true, // You can omit this, defaults to true
+    // }, {
+    //   zoom: 12 // You can set any google map options here, zoom defaults to 15
+    // });
+
+    // Listen to button onclick event
+    confirmBtn.onclick = function () {
+        console.log("clicked button")
+      // Get current location and show it in HTML
+      longitude.value= marker.position.lng();
+      latitude.value=marker.position.lat();
+    //   onClickPositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+    };
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -3994,11 +3994,11 @@ body.map-fullscreen #map {
 }
 
 #map-simple {
-  min-height: 160px;
+  min-height: 250px;
 }
 
 .map-submit {
-  height: 300px;
+  height: 500px;
 }
 
 .gmnoprint img {

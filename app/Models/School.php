@@ -11,4 +11,13 @@ class School extends Model
     public function comments(){
         return $this->hasMany(Review::class);
     }
+    public function photos(){
+        return $this->hasMany(SchoolPhoto::class);
+    }
+    public function courses(){
+        return $this->hasMany(course::class);
+    }
+    public function features(){
+        return $this->hasMany(SchoolFearture::class);
+    }
 }

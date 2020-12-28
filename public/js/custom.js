@@ -405,7 +405,9 @@ function rating(element){
 // Owl Carousel in Modal Window ----------------------------------------------------------------------------------------
 
 function drawOwlCarousel(_rtl){
-    $.getScript( "assets/js/owl.carousel.min.js", function( data, textStatus, jqxhr ) {
+
+    var base_url = window.location.origin;
+    $.getScript(base_url+"/js/owl.carousel.min.js", function( data, textStatus, jqxhr ) {
         $(".image .gallery").owlCarousel({
             rtl: _rtl,
             items: 1,
@@ -456,7 +458,9 @@ function equalHeight(container){
 // Initialize Owl carousel ---------------------------------------------------------------------------------------------
 
 function initializeOwl(_rtl){
-    $.getScript( "assets/js/owl.carousel.min.js", function( data, textStatus, jqxhr ) {
+
+    var base_url = window.location.origin;
+    $.getScript( base_url+"/js/owl.carousel.min.js", function( data, textStatus, jqxhr ) {
         if ($('.owl-carousel').length > 0) {
             if ($('.carousel-full-width').length > 0) {
                 setCarouselWidth();

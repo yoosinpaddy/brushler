@@ -231,15 +231,24 @@
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="company-form-name">Name</label>
-                                                            <input type="text" class="form-control" id="company-form-name" name="company-form-name" required="">
+                                                            <input type="text" class="form-control" id="company-form-name" name="name" required="">
                                                         </div>
                                                         <!-- /.form-group -->
                                                     </div>
                                                     <!--/.col-md-6-->
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
+                                                            <label for="company-form-email">Subject</label>
+                                                            <input type="text" class="form-control" id="company-form-email" name="subject" required="">
+                                                        </div>
+                                                        <!-- /.form-group -->
+                                                    </div>
+                                                    <!--/.col-md-6-->
+                                                    <!--/.col-md-6-->
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <div class="form-group">
                                                             <label for="company-form-email">Email</label>
-                                                            <input type="email" class="form-control" id="company-form-email" name="company-form-email" required="">
+                                                            <input type="email" class="form-control" id="company-form-email" name="email" required="">
                                                         </div>
                                                         <!-- /.form-group -->
                                                     </div>
@@ -247,7 +256,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="company-form-message">Message</label>
-                                                    <textarea class="form-control" id="company-form-message" name="company-form-message"  rows="3" required=""></textarea>
+                                                    <textarea class="form-control" id="company-form-message" name="bodymessage"  rows="3" required=""></textarea>
                                                 </div>
                                                 <!-- /.form-group -->
                                                 <div class="form-group">
