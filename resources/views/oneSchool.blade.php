@@ -495,7 +495,6 @@
     </div>
     <!-- end Outer Wrapper-->
 </body>
-
 <script>
     function getMap(){
         console.log("Getting map");

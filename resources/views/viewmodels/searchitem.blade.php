@@ -43,4 +43,5 @@
         <!-- /.item-->
     </div>
     <!--end of item-->
+    
 @endforeach

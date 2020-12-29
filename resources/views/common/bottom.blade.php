@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <script type="text/javascript" src="{{asset('js/jquery-2.1.0.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 
@@ -29,10 +23,8 @@
         var rtl = false; // Use RTL
         initializeOwl(rtl);
     });
-
     autoComplete();
 </script>
-
 <!--[if lte IE 9]>
 <script type="text/javascript" src="{{asset('js/ie-scripts.js')}}"></script>
 <![endif]-->

@@ -38,7 +38,6 @@ class ImageUploadController extends Controller
             $extension = FacadesFile::extension($file->getClientOriginalName());
             $directory = storage_path('public').'uploads/'.sha1(time());
             $filename = sha1(time().time()).".{$extension}";
-
             // dd($extension);
             // $upload_success = $request->upload('file', $directory, $filename);
             // if( $upload_success ) {

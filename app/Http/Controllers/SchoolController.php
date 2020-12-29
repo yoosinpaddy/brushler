@@ -48,7 +48,6 @@ class SchoolController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -77,7 +76,6 @@ class SchoolController extends Controller
         }else{
             return Redirect::back();
         }
-
 
     }
 

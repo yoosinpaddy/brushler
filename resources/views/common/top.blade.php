@@ -23,4 +23,3 @@
 <link rel="stylesheet" href="{{asset('css/dropzone.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/jquery.ui.timepicker.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
-

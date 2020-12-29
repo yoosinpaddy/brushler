@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory;
+    
     public function comments(){
         return $this->hasMany(Review::class);
     }
