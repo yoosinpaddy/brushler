@@ -1677,6 +1677,10 @@ ul.bullets li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
+.item:hover .quick-view-a, .item:focus .quick-view-a {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
 .item:hover .image .overlay, .item:focus .image .overlay {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
   opacity: 0.95;
@@ -1762,7 +1766,28 @@ ul.bullets li a:hover {
   top: 20px;
   z-index: 4;
 }
+.item .quick-view-a {
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  background-color: #ff513f;
+  cursor: pointer;
+  color: #fff;
+  height: 30px;
+  left: 0;
+  width: 60px;
+  position: absolute;
+  top: 20px;
+  z-index: 4;
+}
 .item .quick-view:hover span {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  left: 70px;
+}
+.item .quick-view-a:hover span {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   left: 70px;
@@ -1774,7 +1799,28 @@ ul.bullets li a:hover {
   margin-right: 10px;
   display: block;
 }
+.item .quick-view-a i {
+  text-align: right;
+  font-size: 18px;
+  line-height: 28px;
+  margin-right: 10px;
+  display: block;
+}
 .item .quick-view span {
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: absolute;
+  width: 100px;
+  top: 0;
+  line-height: 30px;
+  left: 60px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.item .quick-view-a span {
   -moz-transition: 0.4s;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -2117,6 +2163,9 @@ ul.bullets li a:hover {
   transition: 0.4s;
 }
 .item.admin-view .overlay, .item.admin-view .quick-view {
+  display: none;
+}
+.item.admin-view .overlay, .item.admin-view .quick-view-a {
   display: none;
 }
 .item.admin-view .wrapper {
@@ -4405,6 +4454,10 @@ body.map-fullscreen #map {
   transition-delay: 0.1s;
 }
 .infobox .inner .image .overlay:hover .wrapper .quick-view {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+.infobox .inner .image .overlay:hover .wrapper .quick-view-a {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }

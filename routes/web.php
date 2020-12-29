@@ -25,9 +25,6 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
     Route::post('/search', [SearchController::class,'search']);
     Route::get('/search', [SearchController::class,'paginate']);
     Route::get('/submit', [SchoolController::class, 'index'])->name('submit');
@@ -39,12 +36,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/uploadImage', [ImageUploadController::class, 'uploadImage'])->name('uploadImage');
 
 });
-
+Route::get('/dashboard', [SchoolController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboardx', function () {
+    return view('dashboard');
+})->name('dashboardx');
 Route::get('users/{id}', function ($id) {
 
 });
 Route::get('/school/{id}', [SchoolController::class, 'school']);
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/itemModal/{id}', [SchoolController::class, 'itemModal'])->name('itemModal');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact-g');
+Route::get('/external/_navigation.html/', [SchoolController::class, 'navigation'])->name('navigation');
+Route::get('/assets/external/_navigation.html/', [SchoolController::class, 'navigation'])->name('navigation-a');
 Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact');
 
 Route::get('store', [PostController::class, 'store']);
+// Route::any('externam/_navigation.html', "SchoolController@navigation")->where("any", "*_navigation.html");
+// Route::get('/{url1}', function ($url1) {
+//     return 'SchoolController@navigation';
+// })->where('url1', '*_navigation*');

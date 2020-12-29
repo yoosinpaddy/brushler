@@ -1,10 +1,5 @@
 @include('common.top')
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+
 
 <body onunload="" class="map-fullscreen page-homepage navigation-off-canvas" id="page-top">
 
@@ -23,12 +18,15 @@
                         <ul class="main-navigation navigation-top-header"></ul>
                         <ul class="user-area">
                         </ul>
-                        <a href="submit.html" class="submit-item">
+                        @auth
+
+                        <a href="{{url('/')}}/submit" class="submit-item">
                             <div class="content"><span>Submit Your Item</span></div>
                             <div class="icon">
                                 <i class="fa fa-plus"></i>
                             </div>
                         </a>
+                        @endauth
                         <div class="toggle-navigation">
                             <div class="icon">
                                 <div class="line"></div>
@@ -138,7 +136,7 @@
                         </div>
                     </div>
                     <div class="background">
-                        <img src="img/restaurant-bg.jpg" alt="">
+                        <img src="img/back.jpg" alt="">
                     </div>
                 </section>
                 <!--end Hero Image-->
@@ -146,149 +144,73 @@
                 <!--Featured-->
                 <section id="featured" class="block equal-height">
                     <div class="container">
-                        <header><h2>Featured</h2></header>
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                        <a href="item-detail.html">
-                                            <div class="overlay">
-                                                <div class="inner">
-                                                    <div class="content">
-                                                        <h4>Description</h4>
-                                                        <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
+                        @if (count($featured)>0)
+                            <header><h2>Featured</h2></header>
+                            <div class="row">
+                                @foreach ($featured as $item)
+
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="item">
+                                            <div class="image">
+                                                <div class="quick-view-a" id="{{$item->id}}"><i class="fa fa-eye"></i><span>Quick View</span></div>
+                                                <a href="{{url('/')}}/school/{{$item->id}}">
+                                                    <div class="overlay">
+                                                        <div class="inner">
+                                                            <div class="content">
+                                                                @if ($item->description!=""||$item->description!=null)
+                                                                    <h4>Description</h4>
+                                                                    <p>{{$item->description}}</p>
+
+                                                                @endif
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                    <div class="item-specific">
+
+                                                    </div>
+                                                    {{-- <div class="icon">
+                                                         <i class="fa fa-thumbs-up"></i>
+                                                    </div> --}}
+                                                    @if (count($item->photos)>0)
+                                                        <img src="{{url('/')}}/uploads/{{$item->photos[0]->name}}" alt="{{$item->name}} photo">
+                                                    @else
+                                                        <img src="{{url('/')}}/img/items/restaurant/9.jpg" alt="{{$item->name}} photo">
+                                                    @endif
+                                                </a>
+                                            </div>
+                                            <div class="wrapper">
+                                                <a href="item-detail.html"><h3>{{$item->name}}</h3></a>
+                                                <figure>{{$item->county}}</figure>
+                                                <div class="info">
+                                                    <div class="type">
+                                                        {{-- <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i> --}}
+                                                        <span>{{$item->level}}</span>
+                                                    </div>
+
+                                                    <?php
+                                                        $averagecomments=5;
+                                                        $allComments=count($item->comments);
+                                                        if ($allComments!=0) {
+                                                            $totalRating=0;
+                                                            foreach ($item->comments as $comment) {
+                                                                $totalRating+=$comment->rating;
+                                                            }
+
+                                                            $averagecomments=$totalRating/$allComments;
+                                                        }
+                                                    ?>
+                                                    <div class="rating" data-rating="{{$averagecomments}}"></div>
                                                 </div>
                                             </div>
-                                            <div class="item-specific">
-                                                <span title="Bedrooms"><img src="img/bedrooms.png" alt="">2</span>
-                                                <span title="Bathrooms"><img src="img/bathrooms.png" alt="">2</span>
-                                                <span title="Area"><img src="img/area.png" alt="">240m<sup>2</sup></span>
-                                                <span title="Garages"><img src="img/garages.png" alt="">1</span>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa fa-thumbs-up"></i>
-                                            </div>
-                                            <img src="img/items/1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="wrapper">
-                                        <a href="item-detail.html"><h3>Steak House Restaurant</h3></a>
-                                        <figure>63 Birch Street</figure>
-                                        <div class="info">
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                            <div class="rating" data-rating="4"></div>
                                         </div>
+                                        <!-- /.item-->
                                     </div>
-                                </div>
-                                <!-- /.item-->
+                                    <!--/.col-sm-4-->
+                                @endforeach
                             </div>
-                            <!--/.col-sm-4-->
-                            <div class="col-md-3 col-sm-3">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                        <a href="item-detail.html">
-                                            <div class="overlay">
-                                                <div class="inner">
-                                                    <div class="content">
-                                                        <h4>Description</h4>
-                                                        <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img src="img/items/2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="wrapper">
-                                        <a href="item-detail.html"><h3>Benny’s Cafeteria</h3></a>
-                                        <figure>63 Birch Street</figure>
-                                        <div class="info">
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/cafetaria.png" alt=""></i>
-                                                <span>Cafeteria</span>
-                                            </div>
-                                            <div class="rating" data-rating="4"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.item-->
-                            </div>
-                            <!--/.col-sm-4-->
-                            <div class="col-md-3 col-sm-3">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                        <a href="item-detail.html">
-                                            <div class="overlay">
-                                                <div class="inner">
-                                                    <div class="content">
-                                                        <h4>Description</h4>
-                                                        <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-specific">
-                                                <span>Daily menu from: $6</span>
-                                            </div>
-                                            <img src="img/items/restaurant/9.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="wrapper">
-                                        <a href="item-detail.html"><h3>Big Bamboo</h3></a>
-                                        <figure>4662 Bruce Street</figure>
-                                        <div class="info">
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/japanese-food.png" alt=""></i>
-                                                <span>Sushi</span>
-                                            </div>
-                                            <div class="rating" data-rating="3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.item-->
-                            </div>
-                            <!--/.col-sm-4-->
-                            <div class="col-md-3 col-sm-3">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                        <a href="item-detail.html">
-                                            <div class="overlay">
-                                                <div class="inner">
-                                                    <div class="content">
-                                                        <h4>Description</h4>
-                                                        <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-specific">
-                                                <span>Daily menu from: $6</span>
-                                            </div>
-                                            <img src="img/items/restaurant/10.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="wrapper">
-                                        <a href="item-detail.html"><h3>Sushi Wooshi Bar</h3></a>
-                                        <figure>357 Trainer Avenue</figure>
-                                        <div class="info">
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/fishchips.png" alt=""></i>
-                                                <span>Sushi Bar</span>
-                                            </div>
-                                            <div class="rating" data-rating="3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.item-->
-                            </div>
-                            <!--/.col-sm-4-->
-                        </div>
-                        <!--/.row-->
+                            <!--/.row-->
+
+                        @endif
                     </div>
                     <!--/.container-->
                     <div class="background opacity-5">
@@ -298,116 +220,83 @@
                 <!--end Featured-->
 
                 <!--Popular-->
-                <section id="popular" class="block background-color-white">
-                    <div class="container">
-                        <header><h2>Popular</h2></header>
-                        <div class="owl-carousel wide carousel">
-                            <div class="slide">
-                                <div class="inner">
-                                    <div class="image">
-                                        <div class="item-specific">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <dl>
-                                                        <dt>Bedrooms</dt>
-                                                        <dd>2</dd>
-                                                        <dt>Bathrooms</dt>
-                                                        <dd>2</dd>
-                                                        <dt>Area</dt>
-                                                        <dd>240m<sup>2</sup></dd>
-                                                        <dt>Garages</dt>
-                                                        <dd>1</dd>
-                                                        <dt>Build Year</dt>
-                                                        <dd>1990</dd>
-                                                    </dl>
+                @if (count($popular)>0)
+                    <section id="popular" class="block background-color-white">
+                        <div class="container">
+                            <header><h2>Popular</h2></header>
+                            <div class="owl-carousel wide carousel">
+                                @foreach ($popular as $item)
+
+                                    <div class="slide">
+                                        <div class="inner">
+                                            <div class="image">
+                                                <div class="item-specific">
+                                                    <div class="inner">
+                                                        <div class="content">
+                                                            <dl>
+                                                                @if (count($item->courses)>0)
+                                                                    @foreach ($item->courses as $course)
+                                                                        <dt>{{$course->name}}</dt>
+                                                                        <dd>-</dd>
+                                                                    @endforeach
+                                                                @endif
+                                                            </dl>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+                                                @if (count($item->photos)>0)
+                                                    <img src="{{url('/')}}/uploads/{{$item->photos[0]->name}}" alt="{{$item->name}} photo">
+                                                @else
+                                                    <img src="{{url('/')}}/img/items/restaurant/9.jpg" alt="{{$item->name}} photo">
+                                                @endif
                                             </div>
-                                        </div>
-                                        <img src="img/items/restaurant/8.jpg">
-                                    </div>
-                                    <div class="wrapper">
-                                        <a href="item-detail.html"><h3>Magma Bar and Grill</h3></a>
-                                        <figure>
-                                            <i class="fa fa-map-marker"></i>
-                                            <span>970 Chapel Street, Rosenberg, TX 77471</span>
-                                        </figure>
-                                        <div class="info">
-                                            <div class="rating" data-rating="4">
-                                                <aside class="reviews">6 reviews</aside>
-                                            </div>
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/restaurant.png"></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                        </div>
-                                        <!--/.info-->
-                                        <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra interdum eros ut,
-                                            imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis.
-                                            Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra dui...
-                                        </p>
-                                        <a href="item-detail.html" class="read-more icon">Read More</a>
-                                    </div>
-                                    <!--/.wrapper-->
-                                </div>
-                                <!--/.inner-->
-                            </div>
-                            <!--/.slide-->
-                            <div class="slide">
-                                <div class="inner">
-                                    <div class="image">
-                                        <div class="item-specific">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <dl>
-                                                        <dt>Bedrooms</dt>
-                                                        <dd>2</dd>
-                                                        <dt>Bathrooms</dt>
-                                                        <dd>2</dd>
-                                                        <dt>Area</dt>
-                                                        <dd>240m<sup>2</sup></dd>
-                                                        <dt>Garages</dt>
-                                                        <dd>1</dd>
-                                                        <dt>Build Year</dt>
-                                                        <dd>1990</dd>
-                                                    </dl>
+                                            <div class="wrapper">
+                                                <a href="{{url('/')}}/school/{{$item->id}}"><h3>{{$item->name}}</h3></a>
+                                                <figure>
+                                                    <i class="fa fa-map-marker"></i>
+                                                    <span>{{$item->county}}</span>
+                                                </figure>
+                                                <div class="info">
+
+                                                    <?php
+                                                        $averagecomments=5;
+                                                        $allComments=count($item->comments);
+                                                        if ($allComments!=0) {
+                                                            $totalRating=0;
+                                                            foreach ($item->comments as $comment) {
+                                                                $totalRating+=$comment->rating;
+                                                            }
+
+                                                            $averagecomments=$totalRating/$allComments;
+                                                        }
+                                                    ?>
+                                                    <div class="rating" data-rating="{{$averagecomments}}">
+                                                        <aside class="reviews">{{$allComments}} reviews</aside>
+                                                    </div>
+                                                    <div class="type">
+                                                        <i><img src=""></i>
+                                                        <span>{{$item->level}}</span>
+                                                    </div>
                                                 </div>
+                                                <!--/.info-->
+                                                <p>{{$item->description}} </p>
+                                                <a href="{{url('/')}}/school/{{$item->id}}" class="read-more icon">Read More</a>
                                             </div>
+                                            <!--/.wrapper-->
                                         </div>
-                                        <img src="img/items/restaurant/9.jpg">
+                                        <!--/.inner-->
                                     </div>
-                                    <div class="wrapper">
-                                        <a href="item-detail.html"><h3>Saguaro Tavern</h3></a>
-                                        <figure>
-                                            <i class="fa fa-map-marker"></i>
-                                            <span>2476 Whispering Pines Circle</span>
-                                        </figure>
-                                        <div class="info">
-                                            <div class="rating" data-rating="4">
-                                                <aside class="reviews">6 reviews</aside>
-                                            </div>
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/restaurant.png"></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                        </div>
-                                        <!--/.info-->
-                                        <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra interdum eros ut,
-                                            imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis.
-                                            Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra dui...
-                                        </p>
-                                        <a href="item-detail.html" class="read-more icon">Read More</a>
-                                    </div>
-                                    <!--/.wrapper-->
-                                </div>
-                                <!--/.inner-->
+                                    <!--/.slide-->
+                                @endforeach
                             </div>
-                            <!--/.slide-->
+                            <!--/.owl-carousel-->
                         </div>
-                        <!--/.owl-carousel-->
-                    </div>
-                    <!--/.container-->
-                </section>
-                <!--end Popular-->
+                        <!--/.container-->
+                    </section>
+                    <!--end Popular-->
+
+                @endif
 
 
                 <hr>
@@ -418,201 +307,65 @@
                         <div class="row">
                             <div class="col-md-9 col-sm-9">
                                 <section class="equal-height">
-                                    <header><h2>Today Popular</h2></header>
+                                    @if (count($popularPrimary)>0)
+
+                                    <header><h2>Popular Primary Schools</h2></header>
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="item ">
-                                                <div class="image">
-                                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                                    <a href="item-detail.html">
-                                                        <div class="overlay">
-                                                            <div class="inner">
-                                                                <div class="content">
-                                                                    <h4>Description</h4>
-                                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <img src="img/items/restaurant/11.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <a href="item-detail.html"><h3>Max Five Lounge</h3></a>
-                                                    <figure>63 Birch Street</figure>
-                                                    <div class="info">
-                                                        <div class="type">
-                                                            <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                            <span>Restaurant</span>
-                                                        </div>
-                                                        <div class="rating" data-rating="4"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.item-->
-                                        </div>
-                                        <!--/.col-sm-4-->
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="item ">
-                                                <div class="image">
-                                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                                    <a href="item-detail.html">
-                                                        <div class="overlay">
-                                                            <div class="inner">
-                                                                <div class="content">
-                                                                    <h4>Description</h4>
-                                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <img src="img/items/restaurant/4.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <a href="item-detail.html"><h3>Magma Bar & Grill</h3></a>
-                                                    <figure>63 Birch Street</figure>
-                                                    <div class="info">
-                                                        <div class="type">
-                                                            <i><img src="icons/restaurants-bars/restaurants/restaurant_steakhouse.png" alt=""></i>
-                                                            <span>Steak House</span>
-                                                        </div>
-                                                        <div class="rating" data-rating="4"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.item-->
-                                        </div>
-                                        <!--/.col-sm-4-->
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="item ">
-                                                <div class="image">
-                                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                                    <a href="item-detail.html">
-                                                        <div class="overlay">
-                                                            <div class="inner">
-                                                                <div class="content">
-                                                                    <h4>Description</h4>
-                                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-specific">
-                                                            <span>Menu from: $9.00</span>
-                                                        </div>
-                                                        <img src="img/items/restaurant/8.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <a href="item-detail.html"><h3>Guild Trattoria</h3></a>
-                                                    <figure>4662 Bruce Street</figure>
-                                                    <div class="info">
-                                                        <div class="type">
-                                                            <i><img src="icons/restaurants-bars/restaurants/barbecue.png" alt=""></i>
-                                                            <span>BBQ Restaurant</span>
-                                                        </div>
-                                                        <div class="rating" data-rating="3"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.item-->
-                                        </div>
-                                        <!--/.col-sm-4-->
+                                        @foreach ($popularPrimary as $item)
 
                                         <div class="col-md-4 col-sm-4">
                                             <div class="item ">
                                                 <div class="image">
-                                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
+                                                    <div class="quick-view-a" id="{{$item->id}}"><i class="fa fa-eye"></i><span>Quick View</span></div>
                                                     <a href="item-detail.html">
                                                         <div class="overlay">
                                                             <div class="inner">
                                                                 <div class="content">
                                                                     <h4>Description</h4>
-                                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
+                                                                    <p>{{$item->description}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <img src="img/items/restaurant/12.jpg" alt="">
+
+                                                        @if (count($item->photos)>0)
+                                                            <img src="{{url('/')}}/uploads/{{$item->photos[0]->name}}" alt="{{$item->name}} photo">
+                                                        @else
+                                                            <img src="{{url('/')}}/img/items/restaurant/9.jpg" alt="{{$item->name}} photo">
+                                                        @endif
                                                     </a>
                                                 </div>
                                                 <div class="wrapper">
-                                                    <a href="item-detail.html"><h3>Sushi Wooshi Bar</h3></a>
-                                                    <figure>357 Trainer Avenue</figure>
+                                                    <a href="{{url('/')}}/school/{{$item->id}}"><h3>{{$item->name}}</h3></a>
+                                                    <figure>{{$item->county}}</figure>
                                                     <div class="info">
                                                         <div class="type">
-                                                            <i><img src="icons/restaurants-bars/restaurants/fishchips.png" alt=""></i>
-                                                            <span>Sushi Bar</span>
+                                                            {{-- <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i> --}}
+                                                            <span>{{$item->level}}</span>
                                                         </div>
-                                                        <div class="rating" data-rating="3"></div>
+                                                        <?php
+                                                            $averagecomments=5;
+                                                            $allComments=count($item->comments);
+                                                            if ($allComments!=0) {
+                                                                $totalRating=0;
+                                                                foreach ($item->comments as $comment) {
+                                                                    $totalRating+=$comment->rating;
+                                                                }
+
+                                                                $averagecomments=$totalRating/$allComments;
+                                                            }
+                                                        ?>
+                                                        <div class="rating" data-rating="{{$averagecomments}}"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- /.item-->
                                         </div>
                                         <!--/.col-sm-4-->
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="item ">
-                                                <div class="image">
-                                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                                    <a href="item-detail.html">
-                                                        <div class="overlay">
-                                                            <div class="inner">
-                                                                <div class="content">
-                                                                    <h4>Description</h4>
-                                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <img src="img/items/4.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <a href="item-detail.html"><h3>Max Five Lounge</h3></a>
-                                                    <figure>63 Birch Street</figure>
-                                                    <div class="info">
-                                                        <div class="type">
-                                                            <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                            <span>Restaurant</span>
-                                                        </div>
-                                                        <div class="rating" data-rating="4"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.item-->
-                                        </div>
-                                        <!--/.col-sm-4-->
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="item ">
-                                                <div class="image">
-                                                    <div class="quick-view" id="10"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                                    <a href="item-detail.html">
-                                                        <div class="overlay">
-                                                            <div class="inner">
-                                                                <div class="content">
-                                                                    <h4>Description</h4>
-                                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <img src="img/items/6.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <a href="item-detail.html"><h3>Magma Bar & Grill</h3></a>
-                                                    <figure>63 Birch Street</figure>
-                                                    <div class="info">
-                                                        <div class="type">
-                                                            <i><img src="icons/restaurants-bars/restaurants/restaurant_steakhouse.png" alt=""></i>
-                                                            <span>Steak House</span>
-                                                        </div>
-                                                        <div class="rating" data-rating="4"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.item-->
-                                        </div>
-                                        <!--/.col-sm-4-->
+                                        @endforeach
                                     </div>
                                     <!--/.row-->
                                 </section>
+                                    @endif
                                 <!--/.equal-height-->
 
 
@@ -621,51 +374,9 @@
                                 <aside id="sidebar">
                                     <section>
                                         <header><h2>New Schools</h2></header>
-                                        <a href="item-detail.html" class="item-horizontal small">
-                                            <h3>Cash Cow Restaurante</h3>
-                                            <figure>63 Birch Street</figure>
-                                            <div class="wrapper">
-                                                <div class="image"><img src="img/items/1.jpg" alt=""></div>
-                                                <div class="info">
-                                                    <div class="type">
-                                                        <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                        <span>Restaurant</span>
-                                                    </div>
-                                                    <div class="rating" data-rating="4"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!--/.item-horizontal small-->
-                                        <a href="item-detail.html" class="item-horizontal small">
-                                            <h3>Blue Chilli</h3>
-                                            <figure>2476 Whispering Pines Circle</figure>
-                                            <div class="wrapper">
-                                                <div class="image"><img src="img/items/2.jpg" alt=""></div>
-                                                <div class="info">
-                                                    <div class="type">
-                                                        <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                        <span>Restaurant</span>
-                                                    </div>
-                                                    <div class="rating" data-rating="3"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!--/.item-horizontal small-->
-                                        <a href="item-detail.html" class="item-horizontal small">
-                                            <h3>Eddie’s Fast Food</h3>
-                                            <figure>4365 Bruce Street</figure>
-                                            <div class="wrapper">
-                                                <div class="image"><img src="img/items/3.jpg" alt=""></div>
-                                                <div class="info">
-                                                    <div class="type">
-                                                        <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                        <span>Restaurant</span>
-                                                    </div>
-                                                    <div class="rating" data-rating="5"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!--/.item-horizontal small-->
+
+                                        @include('viewmodels.newItem', ['newItems' => $newItems_3])
+
                                     </section>
                                 </aside>
                                 <!--/#sidebar-->
@@ -685,46 +396,26 @@
         </div>
         <!-- end Page Canvas-->
         <!--Page Footer-->
+
         <footer id="page-footer">
             <div class="inner">
                 <div class="footer-top">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
+                                <!--New Items-->
+                                <section>
+                                    <h2>New Schools</h2>
+                                    @include('viewmodels.newItem', ['newItems' => $newitems])
+                                </section>
+                                <!--end New Items-->
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <!--Recent Reviews-->
                                 <section>
                                     <h2>Recent Reviews</h2>
-                                    <a href="item-detail.html#reviews" class="review small">
-                                        <h3>Max Five Lounge</h3>
-                                        <figure>4365 Bruce Street</figure>
-                                        <div class="info">
-                                            <div class="rating" data-rating="4"></div>
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non suscipit felis, sed sagittis tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras ac placerat mauris.
-                                        </p>
-                                    </a><!--/.review-->
-                                    <a href="item-detail.html#reviews" class="review small">
-                                        <h3>Saguaro Tavern</h3>
-                                        <figure>2476 Whispering Pines Circle</figure>
-                                        <div class="info">
-                                            <div class="rating" data-rating="5"></div>
-                                            <div class="type">
-                                                <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis curabitur
-                                        </p>
-                                    </a>
-                                    <!--/.review-->
+                                    @include('viewmodels.recentReviewItem', ['recentReviews' => $recentReviews])
+
                                 </section>
                                 <!--end Recent Reviews-->
                             </div>
@@ -732,21 +423,22 @@
                                 <section>
                                     <h2>About Us</h2>
                                     <address>
-                                        <div>Max Five Lounge</div>
-                                        <div>63 Birch Street</div>
-                                        <div>Granada Hills, CA 91344</div>
+                                        <div>My SchoolMy Choice</div>
+                                        {{-- <div>63 Birch Street</div>
+                                        <div>Granada Hills, CA 91344</div> --}}
                                         <figure>
                                             <div class="info">
                                                 <i class="fa fa-mobile"></i>
-                                                <span>818-832-5258</span>
+                                                <a href="tel:+254700887860">+25470 088 7860</a>
                                             </div>
-                                            <div class="info">
+                                            {{-- <div class="info">
                                                 <i class="fa fa-phone"></i>
                                                 <span>+1 123 456 789</span>
-                                            </div>
+                                            </div> --}}
                                             <div class="info">
                                                 <i class="fa fa-globe"></i>
-                                                <a href="#">www.maxfivelounge.com</a>
+                                                <a
+                                                    href="mailto:inquiry@myschoolmychoice.co.ke">inquiry@myschoolmychoice.co.ke</a>
                                             </div>
                                         </figure>
                                     </address>
@@ -756,7 +448,8 @@
                                         <a href="#" class="social-button"><i class="fa fa-pinterest"></i></a>
                                     </div>
 
-                                    <a href="contact.html" class="btn framed icon">Contact Us<i class="fa fa-angle-right"></i></a>
+                                    <a href="{{ route('contact') }}" class="btn framed icon">Contact Us<i
+                                            class="fa fa-angle-right"></i></a>
                                 </section>
                             </div>
                             <!--/.col-md-4-->
@@ -768,10 +461,10 @@
                 <!--/.footer-top-->
                 <div class="footer-bottom">
                     <div class="container">
-                        <span class="left">(C) Yoosin Paddy, All rights reserved</span>
-                            <span class="right">
-                                <a href="#page-top" class="to-top roll"><i class="fa fa-angle-up"></i></a>
-                            </span>
+                        <span class="left">(C) Yoosin, All rights reserved</span>
+                        <span class="right">
+                            <a href="#page-top" class="to-top roll"><i class="fa fa-angle-up"></i></a>
+                        </span>
                     </div>
                 </div>
                 <!--/.footer-bottom-->
@@ -783,5 +476,25 @@
 </div>
 <!-- end Outer Wrapper-->
 </body>
-</x-app-layout>
+
 @include('common.bottom')
+
+<script>
+    $('.quick-view-a').live('click',  function(){
+        var id = $(this).attr('id');
+        quickView1(id);
+        return false;
+    });
+    function quickView1(id){
+        $.ajax({
+            type: 'GET',
+            url: '{{url('/')}}/itemModal/'+id,
+            data: id,
+            success: function (data) {
+                // Create HTML element with loaded data
+                $('body').append(data);
+            }
+        });
+    }
+
+</script>

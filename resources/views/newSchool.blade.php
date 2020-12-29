@@ -35,12 +35,14 @@
                                     @endauth
                                 </div>
                             @endif
-                            <a href="{{ route('submit') }}" class="submit-item">
-                                <div class="content"><span>Submit Your Item</span></div>
-                                <div class="icon">
-                                    <i class="fa fa-plus"></i>
-                                </div>
-                            </a>
+                            @auth
+                                <a href="{{ route('submit') }}" class="submit-item">
+                                    <div class="content"><span>Submit Your Item</span></div>
+                                    <div class="icon">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </a>
+                            @endauth
                             <div class="toggle-navigation">
                                 <div class="icon">
                                     <div class="line"></div>
