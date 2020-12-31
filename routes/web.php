@@ -21,7 +21,7 @@ use App\Http\Controllers\SchoolController;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::group(['middleware' => ['auth']], function () {
