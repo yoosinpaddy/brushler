@@ -8,7 +8,6 @@
             foreach ($item->comments as $comment) {
                 $totalRating+=$comment->rating;
             }
-
             $averagecomments=$totalRating/$allComments;
         }
     ?>
