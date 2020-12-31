@@ -1,4 +1,5 @@
 @foreach ($newItems as $item)
+
     <!-- new item-->
     <?php
         $averagecomments=5;
