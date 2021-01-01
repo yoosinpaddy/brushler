@@ -4,7 +4,7 @@
         <div class="item">
             <div class="image">
                 <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                <a href="item-detail.html">
+                <a href="{{url('/')}}/school/{{$item->id}}">
                     <div class="overlay">
                         <div class="inner">
                             <div class="content">
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="wrapper">
-                <a href="item-detail.html">
+                <a href="{{url('/')}}/school/{{$item->id}}">
                     <h3>{{ $item->name }}</h3>
                 </a>
                 <figure>{{ $item->county }}{{-- 63 Birch Street
@@ -43,5 +43,5 @@
         <!-- /.item-->
     </div>
     <!--end of item-->
-    
+
 @endforeach

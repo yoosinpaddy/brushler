@@ -23,8 +23,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [SchoolController::class, 'dashboard'])->name('home');
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('/search', [SearchController::class,'search']);
-    Route::get('/search', [SearchController::class,'paginate']);
     Route::get('/submit', [SchoolController::class, 'index'])->name('submit');
     Route::post('/submit', [SchoolController::class, 'store'])->name('submit');
     Route::get('/submit.html', [SchoolController::class, 'index'])->name('submit');
@@ -34,6 +32,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/uploadImage', [ImageUploadController::class, 'uploadImage'])->name('uploadImage');
 
 });
+    Route::post('/search', [SearchController::class,'search']);
+    Route::get('/search', [SearchController::class,'paginate']);
 Route::get('/dashboard', [SchoolController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboardx', function () {
     return view('dashboard');

@@ -35,6 +35,7 @@ class SchoolController extends Controller
         $popular=School::orderBy('views','DESC')->limit(4)->get();
         $popularPrimary=School::where('level','primary')->orderBy('views','DESC')->limit(6)->get();
 
+    // dd($recentReviews[0]->user);
         //check if  we got something
         if (count($featured)<4) {
             $remainingpPosts=4-count($featured);
@@ -54,14 +55,20 @@ class SchoolController extends Controller
         $recentReviews=Review::orderBy('school_id','DESC')->limit(2)->get();
         $recentReview=Review::where('school_id',$id)->orderBy('id','DESC')->limit(2)->get();
         //Increment views
-        $school_=$schoolModel[0];
-        $school_->views=$school_->views+1;
-        $school_->save();
-        //--increment views
+        if (count($schoolModel)>0) {
+            # code...
+            $school_=$schoolModel[0];
+            $school_->views=$school_->views+1;
+            $school_->save();
+            //--increment views
+            // dd($schoolModel[0]->photos);
+            // $images=SchoolPhoto::where('id',$id)->orderBy('id','DESC')->limit(2)->get();
+            return view('oneSchool',["schoolModel"=>$schoolModel[0],"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems]);
 
-        // dd($schoolModel[0]->photos);
-        // $images=SchoolPhoto::where('id',$id)->orderBy('id','DESC')->limit(2)->get();
-        return view('oneSchool',["schoolModel"=>$schoolModel[0],"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems]);
+        }else{
+            return view('oneSchool',["schoolModel"=>$schoolModel,"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems]);
+
+        }
 
     }
     public function itemModal(Request $request,$id)
@@ -162,6 +169,9 @@ class SchoolController extends Controller
                                     'latitude' => 'required',
                                     'motto' => 'required',
                                     'description' => 'description',
+                                    'vision' => 'vision',
+                                    'mission' => 'mission',
+                                    'performance' => 'performance',
                                     'ownership' => 'required'/* ,
                                     'package' => 'required' */]
         );
@@ -174,6 +184,7 @@ class SchoolController extends Controller
         $school->gender=$request->gender;
         $school->phone=$request->phone;
         $school->motto=$request->motto;
+        $school->description='Vision:'.$request->vision.'\n'.'Mision:'.$request->mission.'\n'.'Performance:'.$request->performance.'\n'.$request->description;
         $school->ownership=$request->ownership;
         // $school->package=$request->package;
         $school->latitude=$request->latitude;

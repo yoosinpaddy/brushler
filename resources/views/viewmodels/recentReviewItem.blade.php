@@ -1,6 +1,7 @@
 @foreach ($recentReviews as $item)
     <!-- review-->
-    <a href="item-detail.html#reviews" class="review small">
+    {{-- {{dd($item->user)}} --}}
+    <a href="{{url('/')}}/school/{{$item->user->id}}/#reviews" class="review small">
         <h3>{{$item->school->name}}</h3>
         <figure>{{$item->school->locality}}</figure>
         <div class="info">

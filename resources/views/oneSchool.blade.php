@@ -69,10 +69,10 @@
                 <div id="page-content">
 
                     <div id="map-detail" style="height: 150px;"></div>
-                    <section class="container">
+                    <section class="container" style="padding-left: 5px;padding-right: 5px;">
                         <div class="row">
                             <!--Item Detail Content-->
-                            <div class="col-md-9">
+                            <div class="col-md-9 col-sm-12">
                                 <section class="block" id="main-content">
                                     <header class="page-title">
                                         <div class="title">
@@ -89,7 +89,7 @@
                                     </header>
                                     <div class="row">
                                         <!--Detail Sidebar-->
-                                        <aside class="col-md-4 col-sm-4" id="detail-sidebar">
+                                        <aside class="col-md-4 hidden-sm hidden-xs" id="detail-sidebar">
                                             <!--Contact-->
                                             <section>
                                                 <header>
@@ -183,7 +183,7 @@
                                         </aside>
                                         <!--end Detail Sidebar-->
                                         <!--Content-->
-                                        <div class="col-md-8 col-sm-8">
+                                        <div class="col-md-8 col-sm-12">
                                             <section>
                                                 <article class="item-gallery">
                                                     <div class="owl-carousel item-slider">
@@ -389,7 +389,7 @@
                             </div>
                             <!-- /.col-md-8-->
                             <!--Sidebar-->
-                            <div class="col-md-3">
+                            <div class="col-md-3 ">
                                 <aside id="sidebar">
                                     <section>
 
@@ -423,7 +423,7 @@
                         <div class="container">
 
                             <div class="row">
-                                <div class="col-md-4 col-sm-4">
+                                <div class="col-md-4 hidden-sm hidden-xs">
                                     <!--New Items-->
                                     <section>
                                         <h2>New Items</h2>
@@ -431,7 +431,7 @@
                                     </section>
                                     <!--end New Items-->
                                 </div>
-                                <div class="col-md-4 col-sm-4">
+                                <div class="col-md-4 col-sm-6 col-xs-6">
                                     <!--Recent Reviews-->
                                     <section>
                                         <h2>Recent Reviews</h2>
@@ -440,7 +440,7 @@
                                     </section>
                                     <!--end Recent Reviews-->
                                 </div>
-                                <div class="col-md-4 col-sm-4">
+                                <div class="col-md-4 col-sm-6 col-xs-6">
                                     <section>
                                         <h2>About Us</h2>
                                         <address>

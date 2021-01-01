@@ -63,7 +63,7 @@
                                             <input name="keyword" type="text" class="form-control" id="keyword" placeholder="Enter Keyword">
                                         </div>
                                         <!-- /.form-group -->
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="model">Place Type</label>
                                             <select name="county" id="model" multiple title="Any" data-live-search="true">
                                                 <option value='any'>Any</option>
@@ -115,14 +115,14 @@
                                                 <option value='West Pokot'>West Pokot</option>
                                                 <option value='wajir'>wajir</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.form-group -->
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="location">Location</label>
                                             <div class="input-group location">
                                                 <input name="location" type="text" class="form-control" id="location" placeholder="Enter Location">
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.form-group -->
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -179,7 +179,7 @@
                                                 </a>
                                             </div>
                                             <div class="wrapper">
-                                                <a href="item-detail.html"><h3>{{$item->name}}</h3></a>
+                                                <a href="{{url('/')}}/school/{{$item->id}}"><h3>{{$item->name}}</h3></a>
                                                 <figure>{{$item->county}}</figure>
                                                 <div class="info">
                                                     <div class="type">
@@ -317,7 +317,7 @@
                                             <div class="item ">
                                                 <div class="image">
                                                     <div class="quick-view-a" id="{{$item->id}}"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                                    <a href="item-detail.html">
+                                                    <a href="{{url('/')}}/school/{{$item->id}}">
                                                         <div class="overlay">
                                                             <div class="inner">
                                                                 <div class="content">
@@ -370,7 +370,7 @@
 
 
                             </div>
-                            <div class="col-md-3 col-sm-3">
+                            <div class="col-md-3 didden-sm">
                                 <aside id="sidebar">
                                     <section>
                                         <header><h2>New Schools</h2></header>

@@ -82,7 +82,7 @@
                                                 <i class="fa fa-plus"></i>
                                             </div>
                                         </a>
-                                    @endauth    
+                                    @endauth
                                     <div class="toggle-navigation">
                                         <div class="icon">
                                             <div class="line"></div>
@@ -116,7 +116,7 @@
                                             <input name="keyword" type="text" class="form-control" id="keyword" placeholder="Enter Keyword">
                                         </div>
                                         <!-- /.form-group -->
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="model">Place Type</label>
                                             <select name="county" id="model" multiple title="Any" data-live-search="true">
                                                 <option value='any'>Any</option>
@@ -168,14 +168,14 @@
                                                 <option value='West Pokot'>West Pokot</option>
                                                 <option value='wajir'>wajir</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.form-group -->
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="location">Location</label>
                                             <div class="input-group location">
                                                 <input name="location" type="text" class="form-control" id="location" placeholder="Enter Location">
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.form-group -->
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -271,7 +271,7 @@
                             <div class="footer-top">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-4 hidden-sm hidden-xs">
                                             <!--New Items-->
                                             <section>
                                                 <h2>New Items</h2>
@@ -279,7 +279,7 @@
                                             </section>
                                             <!--end New Items-->
                                         </div>
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
                                             <!--Recent Reviews-->
                                             <section>
                                                 <h2>Recent Reviews</h2>
@@ -288,7 +288,7 @@
                                             </section>
                                             <!--end Recent Reviews-->
                                         </div>
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
                                             <section>
                                                 <h2>About Us</h2>
                                                 <address>

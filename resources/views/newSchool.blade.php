@@ -245,11 +245,31 @@
                                             <!--/.col-md-12-->
                                             <div class="col-md-12 col-sm-12">
                                                 <div class="form-group">
-                                                    <label for="website">Description</label>
-                                                    <textarea required name="description"  class="form-control" ></textarea>
+                                                    <label for="website">Vision</label>
+                                                    <textarea required name="vision"  class="form-control" ></textarea>
                                                 </div>
                                             </div>
                                             <!--/.col-md-12-->
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="website">Mission</label>
+                                                    <textarea required name="mission"  class="form-control" ></textarea>
+                                                </div>
+                                            </div>
+                                            <!--/.col-md-12-->
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="website">Performance (Describe in details the number of As/Upper classes/Pass Respectively)</label>
+                                                        <textarea required name="performance"  class="form-control" ></textarea>
+                                                    </div>
+                                                </div>
+                                            <!--/.col-md-12-->
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="website">Description (Include fees per term/Semister)</label>
+                                                    <textarea required name="description"  class="form-control" ></textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                         <!--/.row-->
                                     </section>
