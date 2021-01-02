@@ -1,5 +1,5 @@
 <head>
-@include('common.top')
+@include('common.top',['heading'=>'MyschoolMyChoice-Contact Us'])
 
 
 </head>

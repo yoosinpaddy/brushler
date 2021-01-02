@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/search', [SearchController::class,'search']);
     Route::get('/search', [SearchController::class,'paginate']);
 Route::get('/dashboard', [SchoolController::class, 'dashboard'])->name('dashboard');
+Route::get('/index-directory.html', [SchoolController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboardx', function () {
     return view('dashboard');
 })->name('dashboardx');

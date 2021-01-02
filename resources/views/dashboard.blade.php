@@ -1,4 +1,4 @@
-@include('common.top',['heading','MyschoolMyChoice-Find a learning institution for your child or yourself to gain knowledge'])
+@include('common.top',['heading'=>'MyschoolMyChoice-Find a learning institution for your child or yourself to gain knowledge'])
 
 
 <body onunload="" class="map-fullscreen page-homepage navigation-off-canvas" id="page-top">

@@ -17,8 +17,8 @@
 <link rel="stylesheet" href="{{asset('css/jquery.nouislider.min.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/colors/brown.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/user.style.css')}}" type="text/css">
-
-    <title>{{$heading??'MySchoolMyChoice - Find a school of my choice in Kenya'}}</title>
+{{-- {{dd($heading)}} --}}
+    <title>{{$heading?? 'MySchoolMyChoice - Find a school of my choice in Kenya'}}</title>
 
 <link rel="stylesheet" href="{{asset('css/dropzone.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/jquery.ui.timepicker.css')}}" type="text/css">
