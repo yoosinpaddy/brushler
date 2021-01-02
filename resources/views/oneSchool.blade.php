@@ -1,7 +1,7 @@
 <head>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @include('common.top')
+    @include('common.top',['heading','MyschoolMyChoice-{{$schoolModel->name}}'])
 
 
 </head>

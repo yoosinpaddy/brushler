@@ -1,6 +1,5 @@
 <head>
-@include('common.top')
-<title>{{$keywords}}</title>
+@include('common.top',['heading','MyschoolMyChoice-{{$keywords}}'])
 
 
 <script type="text/javascript">

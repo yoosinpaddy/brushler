@@ -1,4 +1,4 @@
-@include('common.top')
+@include('common.top',['heading','MyschoolMyChoice-Find a learning institution for your child or yourself to gain knowledge'])
 
 
 <body onunload="" class="map-fullscreen page-homepage navigation-off-canvas" id="page-top">
@@ -258,7 +258,6 @@
                                                     <span>{{$item->county}}</span>
                                                 </figure>
                                                 <div class="info">
-
                                                     <?php
                                                         $averagecomments=5;
                                                         $allComments=count($item->comments);
@@ -267,7 +266,6 @@
                                                             foreach ($item->comments as $comment) {
                                                                 $totalRating+=$comment->rating;
                                                             }
-
                                                             $averagecomments=$totalRating/$allComments;
                                                         }
                                                     ?>
