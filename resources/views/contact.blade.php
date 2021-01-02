@@ -77,7 +77,7 @@
                                             <input name="keyword" type="text" class="form-control" id="keyword" placeholder="Enter Keyword">
                                         </div>
                                         <!-- /.form-group -->
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="model">Place Type</label>
                                             <select name="county" id="model" multiple title="Any" data-live-search="true">
                                                 <option value='any'>Any</option>
@@ -129,14 +129,14 @@
                                                 <option value='West Pokot'>West Pokot</option>
                                                 <option value='wajir'>wajir</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.form-group -->
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="location">Location</label>
                                             <div class="input-group location">
                                                 <input name="location" type="text" class="form-control" id="location" placeholder="Enter Location">
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.form-group -->
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
