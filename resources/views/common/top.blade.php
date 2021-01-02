@@ -17,8 +17,8 @@
 <link rel="stylesheet" href="{{asset('css/jquery.nouislider.min.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/colors/brown.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/user.style.css')}}" type="text/css">
-@if ($header!=null)
-    <title>{{$header}}</title>
+@if ($heading!=null)
+    <title>{{$heading}}</title>
 @else
     <title>MySchoolMyChoice - Find a school of my choice in Kenya</title>
 @endif
