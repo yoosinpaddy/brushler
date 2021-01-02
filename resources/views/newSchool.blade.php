@@ -3,7 +3,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('common.top')
 
-
 </head>
 
 <body onunload="" class="antialiased page-subpage page-listing-grid navigation-off-canvas" id="page-top">

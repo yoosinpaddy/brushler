@@ -1,10 +1,7 @@
-<head>
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    @include('common.top',['heading'=>'MyschoolMyChoice-'.$schoolModel->name])
+   
+    @include('common.top',['heading'=>'MyschoolMyChoice-'.$schoolModel->name,'keywords'=>$keywords])
 
-
-</head>
 
 <body onunload="" class="antialiased page-subpage page-listing-grid navigation-off-canvas" id="page-top">
     <!-- Outer Wrapper-->

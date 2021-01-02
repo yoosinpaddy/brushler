@@ -60,13 +60,20 @@ class SchoolController extends Controller
             $school_=$schoolModel[0];
             $school_->views=$school_->views+1;
             $school_->save();
+            $keywords='';
+            foreach(explode(' ',$school_->name) as $row){
+                $keywords.=$row.',';
+            }
+            foreach(explode(' ',$school_->description) as $row){
+                $keywords.=$row.',';
+            }
             //--increment views
             // dd($schoolModel[0]->photos);
             // $images=SchoolPhoto::where('id',$id)->orderBy('id','DESC')->limit(2)->get();
-            return view('oneSchool',["schoolModel"=>$schoolModel[0],"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems]);
+            return view('oneSchool',["schoolModel"=>$schoolModel[0],"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems,"keywords"=>$keywords]);
 
         }else{
-            return view('oneSchool',["schoolModel"=>$schoolModel,"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems]);
+            return view('oneSchool',["schoolModel"=>$schoolModel,"recentReview"=>$recentReview,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems,"keywords"=>""]);
 
         }
 
