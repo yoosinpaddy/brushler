@@ -10,7 +10,7 @@
     .item { transition: .4s ease; -webkit-transition: .4s ease; position: relative; top: 0; margin-bottom: 20px; }
     .item:hover { top: -5px; }
 </style>
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}" type="text/css">
