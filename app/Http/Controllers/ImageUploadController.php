@@ -50,7 +50,7 @@ class ImageUploadController extends Controller
                 # code...
             return response()->json([
                 'success'=>200,
-                'file'=>public_path('uploads')
+                'file'=>$filename
                 ]);
 
             }else{
