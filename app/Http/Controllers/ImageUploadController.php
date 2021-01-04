@@ -50,7 +50,7 @@ class ImageUploadController extends Controller
                 # code...
             return response()->json([
                 'success'=>200,
-                'file'=>$filename
+                'file'=>'/home/sarchemc/'.url('/').'uploads'
                 ]);
 
             }else{
