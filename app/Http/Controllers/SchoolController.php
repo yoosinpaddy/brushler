@@ -175,12 +175,11 @@ class SchoolController extends Controller
                                     'longitude' => 'required',
                                     'latitude' => 'required',
                                     'motto' => 'required',
-                                    'description' => 'description',
-                                    'vision' => 'vision',
-                                    'mission' => 'mission',
-                                    'performance' => 'performance',
-                                    'ownership' => 'required'/* ,
-                                    'package' => 'required' */]
+                                    'description' => 'required',
+                                    'vision' => 'required',
+                                    'mission' => 'required',
+                                    'performance' => 'required',
+                                    'ownership' => 'required']
         );
         $school=new School();
         $school->name=$request->name;
