@@ -45,7 +45,7 @@ class ImageUploadController extends Controller
             // } else {
             //     return Response::json('error', 400);
             // }
-            $rq=$request->file->move('/home/sarchemc/'.url('/').'uploads', $filename);
+            $rq=$request->file->move('/home/sarchemc/myschoolmychoice.co.ke/uploads', $filename);
             if ($rq) {
                 # code...
             return response()->json([
