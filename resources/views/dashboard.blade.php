@@ -144,7 +144,7 @@
                 <!--Featured-->
                 <section id="featured" class="block equal-height">
                     <div class="container">
-                        @if (count($featured)>0)
+                        @if (count($featured??0)>0)
                             <header><h2>Featured</h2></header>
                             <div class="row">
                                 @foreach ($featured as $item)
