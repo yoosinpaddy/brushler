@@ -40,7 +40,7 @@
         </div>
         <!-- end Navigation-->
         <!-- Page Canvas-->
-        <div id="page-canvas">
+        <div id="page-canvas" style="height: auto;">
             <!--Off Canvas Navigation-->
             <nav class="off-canvas-navigation">
                 <header>Navigation</header>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="background">
-                        <img src="img/back.jpg" alt="">
+                        <img style="height: 100%;background-position: center;object-fit: none;object-position: center;" src="img/back.jpg" alt="">
                     </div>
                 </section>
                 <!--end Hero Image-->

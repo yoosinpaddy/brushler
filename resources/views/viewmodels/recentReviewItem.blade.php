@@ -7,7 +7,7 @@
         <div class="info">
             <div class="rating" data-rating="{{$item->rating}}"></div>
             <div class="type">
-                <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt="{{$item->school->name}}"></i>
+                {{-- <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt="{{$item->school->name}}"></i> --}}
                 <span>{{$item->school->level}}</span>
             </div>
         </div>

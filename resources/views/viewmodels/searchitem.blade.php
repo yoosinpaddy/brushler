@@ -33,7 +33,7 @@
                     --}}</figure>
                 <div class="info">
                     <div class="type">
-                        <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
+                        {{-- <i><img src="icons/restaurants-bars/restaurants/restaurant.png" alt=""></i> --}}
                         <span>{{ $item->level }}</span>
                     </div>
                     <div class="rating" data-rating="4"></div>
