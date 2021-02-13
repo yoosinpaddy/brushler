@@ -1,5 +1,5 @@
 
-   
+
     @include('common.top',['heading'=>'MyschoolMyChoice-'.$schoolModel->name,'keywords'=>$keywords])
 
 
@@ -53,7 +53,7 @@
             </div>
             <!-- end Navigation-->
             <!-- Page Canvas-->
-            <div id="page-canvas">
+            <div id="page-canvas" style="height: auto;">
                 <!--Off Canvas Navigation-->
                 <nav class="off-canvas-navigation">
                     <header>Navigation</header>
