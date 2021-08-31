@@ -198,7 +198,7 @@ class SchoolController extends Controller
         $canSave=$school->save();
         if($canSave){
             //save images
-            $images=$request->file_name;
+            $images=$request->file;
             foreach ($images as $image) {
                 $myImage= new SchoolPhoto();
                 $myImage->name=$image;
