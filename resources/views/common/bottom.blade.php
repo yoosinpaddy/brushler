@@ -19,6 +19,7 @@
 <script type="text/javascript" src="{{asset('js/jquery.ui.timepicker.js')}}"></script>
 
 <script>
+    
     $(window).load(function(){
         var rtl = false; // Use RTL
         initializeOwl(rtl);
