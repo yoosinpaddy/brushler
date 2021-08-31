@@ -91,11 +91,11 @@
                 <!--Page Content-->
                 <div id="page-content">
                     <section class="container">
-                        <div class="row">
-                            <!--Content-->
                             <form id="form-submit" role="form" method="post" action="submit"
                                 enctype="multipart/form-data">
-                                <div class="col-md-9">
+                        <div class="row">
+                            <!--Content-->
+                                <div class="col-md-12">
                                     <header>
                                         <h1 class="page-title">Submit Item</h1>
                                     </header>
@@ -449,6 +449,17 @@
                                         </div>
                                     </section>
                                     <!--end Gallery-->
+                                    <section>
+                                        <h3>Payment</h3>
+                                        <div class="form-group">
+                                            <label for="package">Select your Package</label>
+                                            <select name="package" id="package" class="framed">
+                                                <option value="3">3 Month</option>
+                                                <option value="6">6 Months</option>
+                                                <option value="12">1 Year</option>
+                                            </select>
+                                    </div>
+                                    </section>
                                     <hr>
                                     <section>
                                         <figure class="pull-left margin-top-15">
@@ -464,42 +475,24 @@
                                 </div>
                                 <!--/.col-md-9-->
                                 <!--Sidebar-->
-                                <div class="col-md-3">
-                                    <aside id="sidebar">
-                                        <div class="sidebar-box">
-                                            <h3>Payment</h3>
-                                            <div class="form-group">
-                                                <label for="package">Select your Package</label>
-                                                <select name="package" id="package" class="framed">
-                                                    <option value="3">3 Month</option>
-                                                    <option value="6">6 Months</option>
-                                                    <option value="12">1 Year</option>
-                                                </select>
-                                            </div>
-                                            <!-- /.form-group -->
-                                            {{-- <h4>This package includes</h4>
-                                            <ul class="bullets">
-                                                <li>1 Property</li>
-                                                <li>1 Agent Profile</li>
-                                                <li class="disabled">Agency Profile</li>
-                                                <li class="disabled">Featured Properties</li>
-                                            </ul> --}}
-                                        </div>
-                                    </aside>
-                                    <!-- /#sidebar-->
-                                </div>
                                 <!-- /.col-md-3-->
                                 <!--end Sidebar-->
+                        </div>
                             </form>
                             <!--/#form-submit-->
-                        </div>
                     </section>
                 </div>
                 <!-- end Page Content-->
             </div>
             <!-- end Page Canvas-->
             <!--Page Footer-->
-            <footer id="page-footer">
+            <footer id="page-footer" style=" display: block;
+            background-color: #fff;
+            border-top: 2px solid #f4f4f2;
+            height: 1px;
+            margin-top: 30px;
+            padding-top: 50px;
+            position: fixed;">
                 <div class="inner">
                     <div class="footer-top">
                         <div class="container">
