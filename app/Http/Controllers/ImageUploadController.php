@@ -38,7 +38,8 @@ class ImageUploadController extends Controller
             $extension = FacadesFile::extension($file->getClientOriginalName());
             $directory = public_path('uploads');
             $filename = sha1(time().time()).".{$extension}";
-            $rq=$request->file->move( $directory , $filename);
+            $rq=$request->file->move('/home/myschoo1/public_html/uploads', $filename);
+            // $rq=$request->file->move( $directory , $filename);
             // dd($directory);
             // $upload_success = $request->upload('file', $directory, $filename);
             // if( $upload_success ) {
@@ -46,7 +47,6 @@ class ImageUploadController extends Controller
             // } else {
             //     return Response::json('error', 400);
             // }
-            // $rq=$request->file->move('/home/myschoo1/public_html/uploads', $filename);
             if ($rq) {
                 return response()->json([
                     'success'=>200,
