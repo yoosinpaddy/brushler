@@ -232,7 +232,7 @@ class SchoolController extends Controller
                     }
                 }
             }
-            return view('dashboard');
+            return redirect()->route('dashboard');
         }else{
             return Redirect::back();
         }
