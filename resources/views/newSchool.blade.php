@@ -55,7 +55,10 @@
             </div>
             <!-- end Navigation-->
             <!-- Page Canvas-->
-            <div id="page-canvas">
+            <div id="page-canvas" style="height: auto;
+            padding-bottom: 60px;
+            z-index: 0;
+            position: relative;">
                 <!--Off Canvas Navigation-->
                 <nav class="off-canvas-navigation">
                     <header>Navigation</header>
@@ -486,13 +489,7 @@
             </div>
             <!-- end Page Canvas-->
             <!--Page Footer-->
-            <footer id="page-footer" style=" display: block;
-            background-color: #fff;
-            border-top: 2px solid #f4f4f2;
-            height: 1px;
-            margin-top: 30px;
-            padding-top: 50px;
-            position: fixed;">
+            <footer id="page-footer" style="">
                 <div class="inner">
                     <div class="footer-top">
                         <div class="container">
