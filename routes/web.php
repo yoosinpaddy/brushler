@@ -39,6 +39,9 @@ Route::get('/index-directory.html', [SchoolController::class, 'dashboard'])->nam
 Route::get('/dashboardx', function () {
     return view('dashboard');
 })->name('dashboardx');
+Route::get('/', function () {
+    return view('dashboard');
+})->name('default');
 Route::get('users/{id}', function ($id) {
 
 });

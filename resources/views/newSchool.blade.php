@@ -14,7 +14,7 @@
             <div class="header">
                 <div class="wrapper">
                     <div class="brand">
-                        <a href="index-directory.html"><img src="assets/img/logo.png" alt="logo"></a>
+                        <a href="{{route('default')}}"><img src="{{route('default')}}/img/logo.png" alt="logo"></a>
                     </div>
                     <nav class="navigation-items">
                         <div class="wrapper">
@@ -56,9 +56,9 @@
             <!-- end Navigation-->
             <!-- Page Canvas-->
             <div id="page-canvas" style="height: auto;
-            padding-bottom: 60px;
-            z-index: 0;
-            position: relative;">
+    padding-bottom: 60px;
+    z-index: 0;
+    position: relative;">
                 <!--Off Canvas Navigation-->
                 <nav class="off-canvas-navigation">
                     <header>Navigation</header>
