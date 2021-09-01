@@ -35,13 +35,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/search', [SearchController::class,'search']);
     Route::get('/search', [SearchController::class,'paginate']);
 Route::get('/dashboard', [SchoolController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [SchoolController::class, 'dashboard'])->name('default');
 Route::get('/index-directory.html', [SchoolController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboardx', function () {
     return view('dashboard');
 })->name('dashboardx');
-Route::get('/', function () {
-    return view('dashboard');
-})->name('default');
+// Route::get('/', function () {
+//     return "";
+// })->name('default');
 Route::get('users/{id}', function ($id) {
 
 });

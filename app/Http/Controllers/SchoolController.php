@@ -41,8 +41,8 @@ class SchoolController extends Controller
             $remainingpPosts=4-count($featured);
             $featured_add=School::inRandomOrder($remainingpPosts)->get();
             $featured = $featured->concat($featured_add);
-            // dd($featured);
         }
+        // dd($featured);
         return view('dashboard',["newItems_3"=>$newItems_3,"popularPrimary"=>$popularPrimary,"popular"=>$popular,"featured"=>$featured,"recentReviews"=>$recentReviews,'datasubmited'=>false,"newitems"=>$newItems]);
 
     }
